@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 import styles from "./MainNavigation.module.css";
 
@@ -9,10 +9,25 @@ const MainNavigation: React.FC = () => {
       <nav>
         <ul className={styles.list}>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+              end // this link remains active only if its url starts && ends with "/"
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+              to="/products"
+            >
+              Products
+            </NavLink>
           </li>
         </ul>
       </nav>
